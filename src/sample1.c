@@ -42,7 +42,7 @@ void onFinish() {
 }
 
 void someRectOnClick() {
-    if (changingChars[0] == '#') {
+    if (changingChars[0] == '<') {
         changingChars[0] = '^';
         changingChars[1] = 'v';
     } else {
