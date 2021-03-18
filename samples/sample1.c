@@ -1,8 +1,10 @@
-#include "../src/object/view/rect_view.h"
-#include "../src/main/mainloop.h"
-#include "../src/main/management/observers.h"
-#include "../src/object/observer/rect_click_observer.h"
-#include "../src/utils/colors.h"
+#include <stdbool.h>
+#include "../tui_lib/main/mainloop.h"
+#include "../tui_lib/object/view/rect_view.h"
+#include "../tui_lib/utils/colors.h"
+#include "../tui_lib/object/observer/observer.h"
+#include "../tui_lib/object/observer/rect_click_observer.h"
+#include "../tui_lib/main/management/observers.h"
 
 int onIteration(double _);
 

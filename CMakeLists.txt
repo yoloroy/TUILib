@@ -9,4 +9,6 @@ SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS
 
 add_executable(checkTUILib main.c samples/sample1.c samples/sample1.h)
 
+add_subdirectory(tui_lib)
+
 target_link_libraries(checkTUILib TUILib)
