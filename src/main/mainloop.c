@@ -3,7 +3,7 @@
 #include <zconf.h>
 #include "mainloop.h"
 #include "management/observers.h"
-#include "management/colors.h"
+#include "../utils/colors.h"
 
 bool needToRefresh = false;
 
