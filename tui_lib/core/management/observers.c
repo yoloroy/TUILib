@@ -1,5 +1,4 @@
 #include "observers.h"
-#include "../../object/view/view.h"
 #include "model.h"
 #include <stdlib.h>
 

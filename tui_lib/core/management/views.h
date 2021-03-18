@@ -1,7 +1,7 @@
 #ifndef TUILIB_VIEWS_H
 #define TUILIB_VIEWS_H
 
-#include "../../object/view/view.h"
+#include "../../objects/ui/button.h"
 
 void initViews();
 

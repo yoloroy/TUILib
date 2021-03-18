@@ -1,9 +1,9 @@
 #include <stdbool.h>
 #include "../tui_lib/core/mainloop.h"
-#include "../tui_lib/object/view/rect_view.h"
+#include "../tui_lib/objects/core/view/rect_view.h"
 #include "../tui_lib/utils/colors.h"
-#include "../tui_lib/object/observer/observer.h"
-#include "../tui_lib/object/observer/rect_click_observer.h"
+#include "../tui_lib/objects/core/observer/observer.h"
+#include "../tui_lib/objects/core/observer/rect_click_observer.h"
 #include "../tui_lib/core/management/observers.h"
 
 int onIteration(double _);
@@ -12,7 +12,7 @@ void onFinish();
 
 void someRectOnClick();
 
-RectView *someGlobalRect;
+RectModel *someGlobalRect;
 int someGlobalRectId;
 int someGlobalViewOnClickId;
 char changingChars[] = { '<', '>' };
@@ -22,7 +22,7 @@ int sample1() {
     init(onIteration, onFinish);
 
     View someView = newRect(point(2, 2), point(5, 3), changingChars[0], getColorId(COLOR_BLUE, COLOR_WHITE));
-    someGlobalRect = someView.object;
+    someGlobalRect = someView.object.asRect->position.x;
     someGlobalRectId = someView.id;
     addView(&someView);
 

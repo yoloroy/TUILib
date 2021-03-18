@@ -2,7 +2,7 @@
 #define TUILIB_LABEL_H
 
 #include <ncurses.h>
-#include "../../utils/point.h"
+#include "../../../utils/point.h"
 #include "view.h"
 
 typedef struct {
@@ -10,10 +10,10 @@ typedef struct {
     Point size;
     chtype symbol;
     short colorPair;
-} RectView;
+} RectModel;
 
 View newRect(Point, Point, chtype, short);
 
-void drawRect(RectView *rect);
+void drawRect(RectModel *rect);
 
 #endif //TUILIB_LABEL_H

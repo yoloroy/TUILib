@@ -2,7 +2,7 @@
 #define TUILIB_OBSERVERS_H
 
 #include <ncurses.h>
-#include "../../object/observer/observer.h"
+#include "../../objects/ui/button.h"
 
 void initObservers();
 

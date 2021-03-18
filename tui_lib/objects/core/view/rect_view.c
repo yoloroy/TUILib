@@ -2,7 +2,7 @@
 #include "rect_view.h"
 
 View newRect(Point position, Point size, chtype symbol, short colorPair) {
-    RectView *rectView = malloc(sizeof(RectView));
+    RectModel *rectView = malloc(sizeof(RectModel));
     rectView->position = position;
     rectView->size = size;
     rectView->symbol = symbol;
@@ -13,7 +13,7 @@ View newRect(Point position, Point size, chtype symbol, short colorPair) {
     return view;
 }
 
-void drawRect(RectView *rect) {
+void drawRect(RectModel *rect) {
     int x1 = rect->position.x,
         y1 = rect->position.y,
         x2 = rect->position.x + rect->size.x,
