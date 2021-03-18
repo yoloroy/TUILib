@@ -1,4 +1,4 @@
-#include "src/sample1.h"
+#include "samples/sample1.h"
 
 int main() {
     sample1();

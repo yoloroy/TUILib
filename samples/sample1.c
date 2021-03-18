@@ -1,8 +1,8 @@
-#include "object/view/rect_view.h"
-#include "main/mainloop.h"
-#include "main/management/observers.h"
-#include "object/observer/rect_click_observer.h"
-#include "utils/colors.h"
+#include "../src/object/view/rect_view.h"
+#include "../src/main/mainloop.h"
+#include "../src/main/management/observers.h"
+#include "../src/object/observer/rect_click_observer.h"
+#include "../src/utils/colors.h"
 
 int onIteration(double _);
 
