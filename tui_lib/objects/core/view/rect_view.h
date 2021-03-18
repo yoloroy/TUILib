@@ -14,6 +14,4 @@ typedef struct {
 
 View *newRect(Point, Point, chtype, short);
 
-void drawRect(RectModel *rect);
-
 #endif //TUILIB_LABEL_H

@@ -1,11 +1,13 @@
 #include <stdlib.h>
 #include "rect_view.h"
 
-View *newRect(Point position, Point size, chtype symbol, short colorPair) {
+void drawRect(RectModel *rect);
+
+View *newRect(Point position, Point size, chtype fillingSymbol, short colorPair) {
     RectModel *rectView = malloc(sizeof(RectModel));
     rectView->position = position;
     rectView->size = size;
-    rectView->symbol = symbol;
+    rectView->symbol = fillingSymbol;
     rectView->colorPair = colorPair;
 
     View *view = malloc(sizeof(View));
