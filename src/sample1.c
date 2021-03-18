@@ -2,7 +2,7 @@
 #include "main/mainloop.h"
 #include "main/management/observers.h"
 #include "object/observer/rect_click_observer.h"
-#include "main/management/colors.h"
+#include "utils/colors.h"
 
 int onIteration(double _);
 
@@ -11,6 +11,8 @@ void onFinish();
 void someRectOnClick();
 
 RectView *someGlobalRect;
+int someGlobalRectId;
+int someGlobalViewOnClickId;
 char changingChars[] = { '<', '>' };
 bool isContinue = true;
 
@@ -19,9 +21,11 @@ int sample1() {
 
     View someView = newRect(point(2, 2), point(5, 3), changingChars[0], getColorId(COLOR_BLUE, COLOR_WHITE));
     someGlobalRect = someView.object;
+    someGlobalRectId = someView.id;
     addView(&someView);
 
     Observer someViewOnClick = newRectClickObserver(point(2, 2), point(2+5, 2+3), someRectOnClick);
+    someGlobalViewOnClickId = someViewOnClick.id;
     addObserver(&someViewOnClick);
 
     notify();
@@ -46,7 +50,7 @@ void someRectOnClick() {
         changingChars[0] = '^';
         changingChars[1] = 'v';
     } else {
-        changingChars[0] = '<';
-        changingChars[1] = '>';
+        deleteObserver(someGlobalViewOnClickId);
+        deleteView(someGlobalRectId);
     }
 }
