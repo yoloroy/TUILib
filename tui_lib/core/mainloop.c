@@ -2,6 +2,7 @@
 #include <time.h>
 #include <zconf.h>
 #include "mainloop.h"
+#include "management/views.h"
 #include "management/observers.h"
 #include "../utils/colors.h"
 
@@ -33,17 +34,14 @@ void start() {
         dt = ((double)(time - lastTime)) / CLOCKS_PER_SEC;
         lastTime = time;
 
+        while ((ch = getch()) != ERR) {
+            checkObservers(ch, getEventTypeOfCh(ch));
+        }
         // region TODO: refactor
         attron(COLOR_PAIR(getColorId(COLOR_WHITE, COLOR_BLACK)));
         clear();
         // endregion
-
         updateViews();
-        while ((ch = getch()) != ERR) {
-            mvprintw(0, 0, "getch: %d", ch);
-            checkObservers(ch, getEventTypeOfCh(ch));
-        }
-        mvprintw(0, 0, "getch: %d", ch);
 
         if (needToRefresh) {
             refresh();
