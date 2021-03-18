@@ -1,10 +1,10 @@
 #include <stdbool.h>
-#include "../tui_lib/main/mainloop.h"
+#include "../tui_lib/core/mainloop.h"
 #include "../tui_lib/object/view/rect_view.h"
 #include "../tui_lib/utils/colors.h"
 #include "../tui_lib/object/observer/observer.h"
 #include "../tui_lib/object/observer/rect_click_observer.h"
-#include "../tui_lib/main/management/observers.h"
+#include "../tui_lib/core/management/observers.h"
 
 int onIteration(double _);
 
