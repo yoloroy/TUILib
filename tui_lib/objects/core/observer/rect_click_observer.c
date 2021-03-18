@@ -3,16 +3,21 @@
 
 bool isClickedIn(Point *data, chtype _);
 
-Observer newRectClickObserver(Point start, Point end, void (*onClick)()) {
+Observer *newRectClickObserver(Point start, Point end, void (*onClick)()) {
     Point *data = malloc(sizeof(Point) * 2);
     data[0] = start; data[1] = end;
+
     ConditionAndData conditionAndData = {
             EClick,
             (bool (*)(void *, chtype)) isClickedIn,
             data
     };
 
-    Observer result = { -1, conditionAndData, onClick };
+    Observer *result = malloc(sizeof(Observer));
+    result->id = -1;
+    result->conditionAndData = conditionAndData;
+    result->action = onClick;
+
     return result;
 }
 

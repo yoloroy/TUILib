@@ -12,7 +12,7 @@ typedef struct {
     short colorPair;
 } RectModel;
 
-View newRect(Point, Point, chtype, short);
+View *newRect(Point, Point, chtype, short);
 
 void drawRect(RectModel *rect);
 
