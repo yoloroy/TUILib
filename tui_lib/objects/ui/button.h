@@ -3,14 +3,18 @@
 
 #include "../core/view/view.h"
 #include "../core/observer/observer.h"
-#include "../core/view/rect_view.h"
+#include "../../utils/point.h"
 
 typedef struct {
     View *view;
     Observer *onClick;
 } Button;
 
-Button newRectButton(Point position, Point size, chtype ch, short colorPair, void (*onClickAction)());
+Button newButton(View *view, Observer *observer);
+
+Button newRectButton(Point position, Point size, chtype fillingSymbol, short colorPair, void (*onClickAction)());
+
+Button newTextButton(Point position, Point size, char *string, short colorPair, void (*onClickAction)());
 
 void deleteButton(Button button);
 

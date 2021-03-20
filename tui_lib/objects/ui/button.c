@@ -1,21 +1,43 @@
+#include <string.h>
+#include <stdlib.h>
 #include "button.h"
 #include "../../core/management/views.h"
 #include "../core/observer/rect_click_observer.h"
 #include "../../core/management/observers.h"
+#include "../core/view/rect_view.h"
+#include "../core/view/text_view.h"
 
-Button newRectButton(Point position, Point size, chtype ch, short colorPair, void (*onClickAction)()) {
-    View *view = newRect(position, size, ch, colorPair);
+Button newButton(View *view, Observer *observer) {
     addView(view);
+    addObserver(observer);
 
+    Button result = {view, observer };
+    return result;
+}
+
+Button newRectButton(Point position, Point size, chtype fillingSymbol, short colorPair, void (*onClickAction)()) {
+    View *view = newRect(position, size, fillingSymbol, colorPair);
     Observer *onClickObserver = newRectClickObserver(
             position,
             point(position.x + size.x, position.y + size.y),
             onClickAction
     );
-    addObserver(onClickObserver);
 
-    Button result = { view, onClickObserver };
-    return result;
+    return newButton(view, onClickObserver);
+}
+
+Button newTextButton(Point position, Point size, char *string, short colorPair, void (*onClickAction)()) {
+    char *temp = calloc(strlen(string)+1, sizeof(char));
+    strcpy(temp, string);
+
+    View *view = newText(position, size, temp, colorPair);
+    Observer *onClickObserver = newRectClickObserver(
+            position,
+            point(position.x + size.x, position.y + size.y),
+            onClickAction
+    );
+
+    return newButton(view, onClickObserver);
 }
 
 void deleteButton(Button button) {
