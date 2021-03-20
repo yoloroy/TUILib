@@ -34,7 +34,8 @@ Button newTextButton(Point position, Point size, char *string, short colorPair, 
     Observer *onClickObserver = newRectClickObserver(
             position,
             point(position.x + size.x, position.y + size.y),
-            onClickAction
+            onClickAction,
+            true
     );
 
     return newButton(view, onClickObserver);

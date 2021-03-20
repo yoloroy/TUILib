@@ -4,6 +4,6 @@
 #include "observer.h"
 #include "../../../utils/point.h"
 
-Observer *newRectClickObserver(Point, Point, void(*)());
+Observer *newRectClickObserver(Point, Point, void(*)(), bool);
 
 #endif //TUILIB_RECT_CLICK_OBSERVER_H

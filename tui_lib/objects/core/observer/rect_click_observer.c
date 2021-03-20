@@ -1,15 +1,17 @@
 #include "rect_click_observer.h"
 #include <stdlib.h>
 
-bool isClickedIn(Point *data, chtype _);
+bool isClickedInside(Point *startEnd, chtype _);
 
-Observer *newRectClickObserver(Point start, Point end, void (*onClick)()) {
+bool isClickedOutside(Point *startEnd, chtype _);
+
+Observer *newRectClickObserver(Point start, Point end, void (*onClick)(), bool isInside) {
     Point *data = malloc(sizeof(Point) * 2);
     data[0] = start; data[1] = end;
 
     ConditionAndData conditionAndData = {
             EClick,
-            (bool (*)(void *, chtype)) isClickedIn,
+            (bool (*)(void *, chtype)) (isInside ? isClickedInside : isClickedOutside),
             data
     };
 
@@ -21,9 +23,13 @@ Observer *newRectClickObserver(Point start, Point end, void (*onClick)()) {
     return result;
 }
 
-bool isClickedIn(Point *startEnd, chtype _) {
+bool isClickedInside(Point *startEnd, chtype _) {
     MEVENT event;
     getmouse(&event);
     return (event.y <= startEnd[1].y) && (event.y >= startEnd[0].y) &&
            (event.x <= startEnd[1].x) && (event.x >= startEnd[0].x);
+}
+
+bool isClickedOutside(Point *startEnd, chtype _) {
+    return !isClickedInside(startEnd, _);
 }

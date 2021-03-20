@@ -9,7 +9,7 @@ void onFinish();
 
 void buttonOnClick();
 
-Button button;
+UIButton button;
 char changingChars[] = { '<', '>' };
 bool isContinue = true;
 
