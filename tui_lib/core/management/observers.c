@@ -24,6 +24,7 @@ void checkObservers(chtype ch, EventType eventType) {
                 getObserverByIndex(i)->conditionAndData.condition(getObserverByIndex(i)->conditionAndData.args, ch)
         ) {
             getObserverByIndex(i)->action();
+            break;
         }
     }
 }
