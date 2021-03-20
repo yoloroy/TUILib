@@ -9,8 +9,7 @@ View *newText(Point position, Point size, char *string, short colorPair) {
     TextModel *text = malloc(sizeof(TextModel));
     text->position = position;
     text->size = size;
-    text->string = calloc(strlen(string), sizeof(char));
-    strcpy(text->string, string);
+    text->string = string;
     text->colorPair = colorPair;
 
     View *view = malloc(sizeof(View));
