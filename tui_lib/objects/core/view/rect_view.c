@@ -11,6 +11,7 @@ View *newRect(Point position, Point size, chtype fillingSymbol, short colorPair)
     rectView->colorPair = colorPair;
 
     View *view = malloc(sizeof(View));
+    view->isVisible = true;
     view->id = -1;
     view->object = rectView;
     view->drawFunc = (void (*)(void *)) drawRect;

@@ -13,6 +13,7 @@ View *newText(Point position, Point size, char *string, short colorPair) {
     text->colorPair = colorPair;
 
     View *view = malloc(sizeof(View));
+    view->isVisible = true;
     view->id = -1;
     view->object = text;
     view->drawFunc = (void (*)(void *)) drawText;

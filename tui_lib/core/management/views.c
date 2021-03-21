@@ -20,7 +20,8 @@ void initViews() {
 
 void updateViews() {
     for (int i = 0; i < ViewsManagerModel.count; ++i) {
-        getViewByIndex(i)->drawFunc(getViewByIndex(i)->object);
+        if (getViewByIndex(i)->isVisible)
+            getViewByIndex(i)->drawFunc(getViewByIndex(i)->object);
     }
 }
 
