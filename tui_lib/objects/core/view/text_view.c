@@ -17,7 +17,7 @@ View *newText(Point position, Point size, char *string, short colorPair) {
     view->id = -1;
     view->object = text;
     view->drawFunc = (void (*)(void *)) drawText;
-    return NULL;
+    return view;
 }
 
 void drawText(TextModel *text) {
