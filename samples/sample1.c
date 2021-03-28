@@ -2,6 +2,7 @@
 #include "../tui_lib/utils/colors.h"
 #include "../tui_lib/objects/ui/button.h"
 #include "../tui_lib/core/mainloop.h"
+#include "../tui_lib/objects/core/view/rect_view.h"
 
 int onIteration(double _);
 
@@ -9,7 +10,7 @@ void onFinish();
 
 void buttonOnClick();
 
-UIButton button;
+Button button;
 char changingChars[] = { '<', '>' };
 bool isContinue = true;
 
