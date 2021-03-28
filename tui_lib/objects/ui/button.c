@@ -20,7 +20,8 @@ Button newRectButton(Point position, Point size, chtype fillingSymbol, short col
     Observer *onClickObserver = newRectClickObserver(
             position,
             point(position.x + size.x, position.y + size.y),
-            onClickAction
+            onClickAction,
+            true
     );
 
     return newButton(view, onClickObserver);
