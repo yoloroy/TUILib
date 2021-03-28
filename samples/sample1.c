@@ -17,7 +17,7 @@ bool isContinue = true;
 int sample1() {
     init(onIteration, onFinish);
 
-    button = newRectButton(point(2, 2), point(5, 3), changingChars[0], getColorId(COLOR_RED, COLOR_WHITE), buttonOnClick);
+    button = newRectButton(point(2, 2), point(5, 3), changingChars[0], getColorId(COLOR_RED, COLOR_WHITE), buttonOnClick, &button);
 
     notify();
     start();
@@ -38,11 +38,11 @@ void onFinish() {
 
 }
 
-void buttonOnClick() {
+void buttonOnClick(Button *iAmHasClicked) {
     if (changingChars[0] == '<') {
         changingChars[0] = '^';
         changingChars[1] = 'v';
     } else {
-        deleteButton(button);
+        deleteButton(*iAmHasClicked);
     }
 }

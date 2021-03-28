@@ -23,7 +23,7 @@ void checkObservers(chtype ch, EventType eventType) {
         if (eventType == getObserverByIndex(i)->conditionAndData.eventToObserve &&
                 getObserverByIndex(i)->conditionAndData.condition(getObserverByIndex(i)->conditionAndData.args, ch)
         ) {
-            getObserverByIndex(i)->action();
+            getObserverByIndex(i)->action(getObserverByIndex(i)->actionData);
             break;
         }
     }

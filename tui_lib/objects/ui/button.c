@@ -11,23 +11,24 @@ Button newButton(View *view, Observer *observer) {
     addView(view);
     addObserver(observer);
 
-    Button result = {view, observer };
+    Button result = { view, observer };
     return result;
 }
 
-Button newRectButton(Point position, Point size, chtype fillingSymbol, short colorPair, void (*onClickAction)()) {
+Button newRectButton(Point position, Point size, chtype fillingSymbol, short colorPair, void (*onClickAction)(void *), void *actionData) {
     View *view = newRect(position, size, fillingSymbol, colorPair);
     Observer *onClickObserver = newRectClickObserver(
             position,
             point(position.x + size.x, position.y + size.y),
             onClickAction,
+            actionData,
             true
     );
 
     return newButton(view, onClickObserver);
 }
 
-Button newTextButton(Point position, Point size, char *string, short colorPair, void (*onClickAction)()) {
+Button newTextButton(Point position, Point size, char *string, short colorPair, void (*onClickAction)(void *), void *actionData) {
     char *temp = calloc(strlen(string)+1, sizeof(char));
     strcpy(temp, string);
 
@@ -36,6 +37,7 @@ Button newTextButton(Point position, Point size, char *string, short colorPair, 
             position,
             point(position.x + size.x, position.y + size.y),
             onClickAction,
+            actionData,
             true
     );
 

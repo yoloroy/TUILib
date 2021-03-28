@@ -12,9 +12,9 @@ typedef struct {
 
 Button newButton(View *view, Observer *observer);
 
-Button newRectButton(Point position, Point size, chtype fillingSymbol, short colorPair, void (*onClickAction)());
+Button newRectButton(Point position, Point size, chtype fillingSymbol, short colorPair, void (*onClickAction)(void *), void *actionData);
 
-Button newTextButton(Point position, Point size, char *string, short colorPair, void (*onClickAction)());
+Button newTextButton(Point position, Point size, char *string, short colorPair, void (*onClickAction)(void *), void *actionData);
 
 void deleteButton(Button button);
 

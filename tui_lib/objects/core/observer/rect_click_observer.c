@@ -5,7 +5,7 @@ bool isClickedInside(Point *startEnd, chtype _);
 
 bool isClickedOutside(Point *startEnd, chtype _);
 
-Observer *newRectClickObserver(Point start, Point end, void (*onClick)(), bool isInside) {
+Observer *newRectClickObserver(Point start, Point end, void (*onClick)(void *), void *actionData, bool isInside) {
     Point *data = malloc(sizeof(Point) * 2);
     data[0] = start; data[1] = end;
 
@@ -19,6 +19,7 @@ Observer *newRectClickObserver(Point start, Point end, void (*onClick)(), bool i
     result->id = -1;
     result->conditionAndData = conditionAndData;
     result->action = onClick;
+    result->actionData = actionData;
 
     return result;
 }

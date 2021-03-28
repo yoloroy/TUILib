@@ -13,7 +13,8 @@ typedef struct {
 typedef struct {
     int id;
     ConditionAndData conditionAndData;
-    void (*action)();
+    void (*action)(void *);
+    void *actionData;
 } Observer;
 
 #endif //TUILIB_OBSERVER_H
