@@ -3,6 +3,7 @@
 #include "../tui_lib/objects/ui/button.h"
 #include "../tui_lib/core/mainloop.h"
 #include "../tui_lib/objects/core/view/rect_view.h"
+#include "../tui_lib/objects/ui/block.h"
 
 int onIteration(double _);
 
@@ -17,7 +18,19 @@ bool isContinue = true;
 int sample1() {
     init(onIteration, onFinish);
 
-    button = newRectButton(point(2, 2), point(5, 3), changingChars[0], getColorId(COLOR_RED, COLOR_WHITE), buttonOnClick, &button);
+    button = newRectButton(
+            point(2, 2),
+            point(5, 3),
+            changingChars[0],
+            getColorId(COLOR_RED, COLOR_WHITE),
+            buttonOnClick,
+            &button);
+
+    newTextBlock(
+            point(4, 4),
+            point(6, 3),
+            "123456789101112131415",
+            getColorId(COLOR_WHITE, COLOR_CYAN));
 
     notify();
     start();
