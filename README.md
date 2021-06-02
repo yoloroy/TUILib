@@ -21,18 +21,18 @@ int sample1() {
     init(onIteration, onFinish);
 
     button = newRectButton(
-            point(2, 2),
-            point(5, 3),
-            changingChars[0],
-            getColorId(COLOR_RED, COLOR_WHITE),
-            buttonOnClick,
-            &button);
+            point(2, 2), // position
+            point(5, 3), // size
+            changingChars[0], // filling symbol
+            getColorId(COLOR_RED, COLOR_WHITE), // color pair
+            buttonOnClick, // func for onClick event
+            &button); // data for onClick event
 
     newTextBlock(
-            point(4, 4),
-            point(6, 3),
-            "123456789101112131415",
-            getColorId(COLOR_WHITE, COLOR_CYAN));
+            point(4, 4), // position
+            point(6, 3), // size
+            "123456789101112131415", // text
+            getColorId(COLOR_WHITE, COLOR_CYAN)); // color pair
 
     notify();
     start();
